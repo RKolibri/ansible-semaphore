@@ -1,9 +1,10 @@
 ---
 - name: Install qemu-guest-agent package
   hosts: all
-  become: yes
+  
   tasks:
     - name: Install qemu-guest-agent
       apt:
         name: qemu-guest-agent
         state: present
+  become_user: kolibri
