@@ -7,4 +7,5 @@
       apt:
         name: qemu-guest-agent
         state: present
-  become_user: kolibri
+        become: yes
+        become_user: kolibri
