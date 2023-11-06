@@ -3,7 +3,6 @@
   hosts: all
   become: true
   become_user: kolibri
-  become_method: su
   tasks:
     - name: Install qemu-guest-agent
       apt:
