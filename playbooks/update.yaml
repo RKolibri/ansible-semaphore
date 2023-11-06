@@ -1,9 +1,10 @@
 ---
-- hosts: all
-
-  become: yes
+- name: Install qemu-guest-agent package
+  hosts: all
+  become: true
+  become_method: sudo
   tasks:
-    - name: update apt packages
+    - name: Install qemu-guest-agent
       apt:
-        upgrade: yes
-        update_cache: yes
+        name: qemu-guest-agent
+        state: present
