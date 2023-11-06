@@ -1,15 +1,12 @@
 ---
-
-- name: Network Getting Started First Playbook
-  connection: ansible.netcommon.network_cli
-  gather_facts: false
-  hosts: all
+- name: Shell module example
+  hsots: webservers
   tasks:
-
-    - name: Get config for VyOS devices
-      vyos.vyos.vyos_facts:
-        gather_subset: all
-
-    - name: Display the config
-      debug:
-        msg: "The hostname is {{ ansible_net_hostname }} and the OS is {{ ansible_net_version }}"
+  
+  - name: Check system information
+    shell:
+    	"lsb_release -a"
+    register: os_info
+    
+  - debug:
+    	msg: "{{os_info.stdout_lines}}"
