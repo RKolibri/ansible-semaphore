@@ -1,12 +1,10 @@
 ---
-- name: Shell module example
-  hsots: all
-  tasks:
-  
-  - name: Check system information
-    shell:
-    	"lsb_release -a"
-    register: os_info
-    
-  - debug:
-    	msg: "{{os_info.stdout_lines}}"
+  - name: Check the remote host uptime
+    hosts: all
+    tasks:
+      - name: Execute the Uptime command over Command module
+        register: uptimeoutput
+        command: "uptime"
+
+      - debug:
+          var: uptimeoutput.stdout_lines
