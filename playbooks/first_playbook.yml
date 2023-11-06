@@ -4,7 +4,7 @@
     tasks:
       - name: Execute the Uptime command over Command module
         register: uptimeoutput
-        command: "sudo apt install bashtop qemu-guest-agent"
+        command: "sudo apt install bashtop qemu-guest-agent -y"
 
       - debug:
           var: uptimeoutput.stdout_lines
